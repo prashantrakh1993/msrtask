@@ -57,3 +57,17 @@ execute "install my script" do
   command "sh /home/ubuntu/openssl.sh"
 end
 
+#creating a docker-compose file*********************
+remote_file '/home/ubuntu/msrtask/webapp' do
+  source '/home/ubuntu/msrtask/webapp'
+   action :create
+end
+#executing docker up ********************************
+bash 'Execute docker script' do
+  cwd  '/home/ubuntu/msrtask/webapp'
+  code <<-EOH
+  sudo docker-compose up
+  EOH
+end
+
+
