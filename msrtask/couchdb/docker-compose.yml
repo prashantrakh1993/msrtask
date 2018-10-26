@@ -1,0 +1,9 @@
+version: '3'
+services:
+   db:
+    image: couchdb
+    container_name: couchdb_database
+    restart: always
+    ports:
+    - "5984:5984"
+
